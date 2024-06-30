@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AI ChatBOT</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#chat-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+}
+
+#chat-window {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#output {
+    flex-grow: 1;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#input {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#send {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-window">
+            <div id="output"></div>
+            <input id="input" type="text" placeholder="Type a message...">
+            <button id="send">Send</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('send').addEventListener('click', function() {
+    let input = document.getElementById('input').value;
+    if(input.trim() !== '') {
+        let output = document.getElementById('output');
+        let userMessage = `<p><strong>You:</strong> ${input}</p>`;
+        output.innerHTML += userMessage;
+        document.getElementById('input').value = '';
+
+        // Simulate a response from the chatbot (replace this with actual API call)
+        setTimeout(function() {
+            let botMessage = `<p><strong>Bot:</strong> This is a response from the chatbot.</p>`;
+            output.innerHTML += botMessage;
+            output.scrollTop = output.scrollHeight;
+        }, 1000);
+    }
+});
+
+
+    </script>
+</body>
+</html>
